@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import React from 'react';
 import styles from '../styles/Home.module.css';
+import generatedRSSFeed from '@/lib/feed';
 
 const Home: NextPage = () => {
     return (
@@ -69,4 +70,8 @@ const Home: NextPage = () => {
     );
 };
 
+export const getStaticProps = async () => {
+    generatedRSSFeed();
+    return { props: {} };
+};
 export default Home;
