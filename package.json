@@ -3,7 +3,7 @@
     "author": "Daiki Takahashi",
     "description": "RimlことDaiki Takahashiのホームページです。",
     "version": "0.1.0",
-    "license": "Apache-2.0 License",
+    "license": "MIT License",
     "private": true,
     "scripts": {
         "dev": "next dev",
@@ -11,7 +11,8 @@
         "start": "next start",
         "lint": "next lint",
         "lint:fix": "next lint --fix",
-        "prettier": "prettier --write --ignore-path .ignore './src/*.{js,jsx,ts,tsx,json,css,scss}'"
+        "prettier": "prettier --write --ignore-path .ignore './src/*.{js,jsx,ts,tsx,json,css,scss}'",
+        "prepare": "husky install"
     },
     "engines": {
         "npm": "当プロジェクトではnpmではなくyarnを利用してください。"
