@@ -1,4 +1,5 @@
 {
+    "title": "RimlHP",
     "name": "rimlhp",
     "author": "Daiki Takahashi",
     "description": "RimlことDaiki Takahashiのホームページです。",
@@ -40,9 +41,11 @@
         "eslint": "7.32.0",
         "eslint-config-next": "12.0.4",
         "eslint-config-prettier": "^8.3.0",
+        "feed": "^4.2.2",
         "framer-motion": "^4",
         "husky": "^7.0.4",
         "lint-staged": "^12.1.2",
+        "marked": "^4.0.6",
         "next-sitemap": "^1.6.203",
         "prettier": "^2.5.0",
         "stylelint": "^14.1.0",
