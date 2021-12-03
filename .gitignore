@@ -38,5 +38,5 @@ yarn-error.log*
 
 # rss feed
 /public/rss/atom.xml
-/public/rss/feed.json
-/public/rss/feed.xml
+/public/rss/json.json
+/public/rss/rss.xml
