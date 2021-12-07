@@ -24,6 +24,7 @@ import {
     useDisclosure,
     useColorMode,
 } from '@chakra-ui/react';
+import { useLocale } from '@/hooks/useLocale';
 
 export const Header = () => {
     const { colorMode, toggleColorMode } = useColorMode();
@@ -60,7 +61,7 @@ export const Header = () => {
                         fontFamily={'heading'}
                         color={useColorModeValue('gray.800', 'white')}
                     >
-                        Logo
+                        Riml
                     </Text>
 
                     <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
@@ -86,10 +87,11 @@ const DesktopNav = () => {
     const linkColor = useColorModeValue('gray.600', 'gray.200');
     const linkHoverColor = useColorModeValue('gray.800', 'white');
     const popoverContentBgColor = useColorModeValue('white', 'gray.800');
+    const item = NAV_ITEMS();
 
     return (
         <Stack direction={'row'} spacing={4}>
-            {NAV_ITEMS.map((navItem) => (
+            {item.map((navItem) => (
                 <Box key={navItem.label}>
                     <Popover trigger={'hover'} placement={'bottom-start'}>
                         <PopoverTrigger>
@@ -169,9 +171,10 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
 };
 
 const MobileNav = () => {
+    const item = NAV_ITEMS();
     return (
         <Stack bg={useColorModeValue('white', 'gray.800')} p={4} display={{ md: 'none' }}>
-            {NAV_ITEMS.map((navItem) => (
+            {item.map((navItem) => (
                 <MobileNavItem key={navItem.label} {...navItem} />
             ))}
         </Stack>
@@ -235,43 +238,46 @@ interface NavItem {
     href?: string;
 }
 
-const NAV_ITEMS: Array<NavItem> = [
-    {
-        label: 'About',
-        children: [
-            {
-                label: 'Profile',
-                subLabel: 'Trending Design to inspire you',
-                href: '#',
-            },
-            {
-                label: 'history',
-                subLabel: 'Up-and-coming Designers',
-                href: '#',
-            },
-        ],
-    },
-    {
-        label: 'Works',
-        children: [
-            {
-                label: 'Job Board',
-                subLabel: 'Find your dream design job',
-                href: '#',
-            },
-            {
-                label: 'Freelance Projects',
-                subLabel: 'An exclusive list for contract work',
-                href: '#',
-            },
-        ],
-    },
-    {
-        label: 'Blogs',
-        href: '#',
-    },
-    {
-        label: 'Contact',
-        href: '#',
-    },
-];
+function NAV_ITEMS(): Array<NavItem> {
+    const { t } = useLocale();
+    return new Array(
+        {
+            label: t.About,
+            children: [
+                {
+                    label: t.ProfileLabel,
+                    subLabel: t.ProfileSubLabel,
+                    href: '#profile',
+                },
+                {
+                    label: t.HistoryLabel,
+                    subLabel: t.HistorySubLabel,
+                    href: '#history',
+                },
+            ],
+        },
+        {
+            label: t.Works,
+            children: [
+                {
+                    label: t.WorksLabel,
+                    subLabel: t.WorksSubLabel,
+                    href: '#works',
+                },
+                {
+                    label: t.BusinessLabel,
+                    subLabel: t.BusinessSubLabel,
+                    href: '#business',
+                },
+            ],
+        },
+        {
+            label: t.Blogs,
+            href: '/blog',
+        },
+        {
+            label: t.Contact,
+            href: '#contact',
+        },
+    );
+}

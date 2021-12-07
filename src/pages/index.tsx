@@ -49,21 +49,10 @@ const Home: NextPage = ({ blog }: any) => {
                         <p>Discover and deploy boilerplate example Next.js projects.</p>
                     </a>
 
-                    <a href="https://localhost:3000/blog/test" className={styles.card}>
-                        <h2>Deploy &rarr;</h2>
-                        <p>Instantly deploy your Next.js site to a public URL with Vercel.</p>
+                    <a href="http://localhost:3000/blog/" className={styles.card}>
+                        <h2>ブログ &rarr;</h2>
+                        <p>こちらからブログを確認できます。</p>
                     </a>
-                </div>
-                <div>
-                    <ul>
-                        {blog.map((item: BlogType) => (
-                            <li key={item.id}>
-                                <Link href={`/blog/${item.id}`}>
-                                    <a>{item.title}</a>
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
                 </div>
             </main>
 
@@ -73,12 +62,9 @@ const Home: NextPage = ({ blog }: any) => {
 };
 
 export const getStaticProps = async () => {
-    const data = await client.get({ endpoint: 'blog' });
     generatedRSSFeed();
     return {
-        props: {
-            blog: data.contents,
-        },
+        props: {},
     };
 };
 export default Home;
