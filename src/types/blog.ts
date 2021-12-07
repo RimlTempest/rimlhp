@@ -1,15 +1,15 @@
 import { AuthorType } from '@/types/author';
 import { CategoryType } from '@/types/categories';
-import { BaseResponse, Image } from '@/types/response';
+import { ContentBase, Image } from '@/types/response';
 
-export type BlogType = BaseResponse & {
-    title: string;
+export type BlogType = ContentBase & {
+    title?: string;
     category: CategoryType[] | [];
-    toc_visible: boolean;
+    toc_visible?: boolean;
     body: string;
-    description: string;
-    og_image: Image;
+    description?: string;
+    og_image?: Image;
     writer: AuthorType;
-    related_blogs: BlogType[] | [];
-    visible: boolean;
+    related_blogs?: BlogType[] | [];
+    visible?: boolean;
 };

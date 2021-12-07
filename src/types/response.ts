@@ -1,3 +1,4 @@
+import { MicroCMSListContent } from 'microcms-js-sdk';
 import { AuthorType } from '@/types/author';
 import { BlogType } from '@/types/blog';
 
@@ -7,13 +8,7 @@ type Base = {
     limit: number;
 };
 
-export type BaseResponse = {
-    id: string;
-    createdAt: string;
-    updatedAt: string;
-    publishedAt: string;
-    revisedAt: string;
-};
+export type ContentBase = MicroCMSListContent;
 
 export type Image = {
     url: string;

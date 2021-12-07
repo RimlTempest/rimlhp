@@ -1,6 +1,6 @@
-import { BaseResponse, Image } from '@/types/response';
+import { ContentBase, Image } from '@/types/response';
 
-export type AuthorType = BaseResponse & {
+export type AuthorType = ContentBase & {
     name: string;
     description: string;
     image: Image;

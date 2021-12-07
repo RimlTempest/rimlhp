@@ -1,5 +1,5 @@
-import { BaseResponse } from '@/types/response';
+import { ContentBase } from '@/types/response';
 
-export type CategoryType = BaseResponse & {
+export type CategoryType = ContentBase & {
     category_name: string;
 };
